@@ -35,6 +35,30 @@
 
 // build the nav
 
+// start html
+
+document.addEventListener('DOMContentLoaded', function () {
+    let html = "";
+
+	// Collect all sections
+
+	const sections = document.getElementsByTagName('section');
+
+	// Loop through and build the html based on data-nav values
+
+
+	for (const section of sections) {
+		html += (`<li><a href="#${section.attributes['id'].nodeValue}">` + 
+				 `${section.attributes['data-nav'].nodeValue}</a></li>`);
+	}
+
+	// Insert html into document
+
+	const nav_list = document.getElementById("navbar__list");
+	nav_list.innerHTML = html;
+});
+
+
 
 // Add class 'active' to section when near top of viewport
 
