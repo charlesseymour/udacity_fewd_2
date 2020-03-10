@@ -33,10 +33,10 @@
  * 
 */
 
-// build the nav:
-
 document.addEventListener('DOMContentLoaded', function () {
     
+	// build the nav:
+	
 	// start html
 	let html = "";
 
@@ -59,6 +59,7 @@ document.addEventListener('DOMContentLoaded', function () {
 	let active_section = document.getElementsByClassName("your-active-class")[0];
 
 	// On scroll event, check if current active section is visible in the viewport
+	// Based on https://gomakethings.com/how-to-test-if-an-element-is-in-the-viewport-with-vanilla-javascript/
 	window.addEventListener('scroll', function (event) {
 		
 		// Get position of current active section
@@ -82,15 +83,16 @@ document.addEventListener('DOMContentLoaded', function () {
 	}, false);
 
 
-// If not visible, add your-active-class to next or previous section as appropriate
-
-// Remove your-active-class from current active section
-
-
-
-
-// Scroll to anchor ID using scrollTO event
-
+	// Scroll to anchor ID using scrollTO event
+	// Based on https://stackoverflow.com/questions/7717527/smooth-scrolling-when-clicking-an-anchor-link
+	document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+		anchor.addEventListener('click', function (e) {
+			e.preventDefault();
+			document.querySelector(this.getAttribute('href')).scrollIntoView({
+				behavior: 'smooth'
+			});
+		});
+	});
 
 /**
  * End Main Functions
