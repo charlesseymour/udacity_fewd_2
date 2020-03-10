@@ -48,7 +48,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
 	for (const section of sections) {
-		html += (`<li><a href="#${section.attributes['id'].nodeValue}">` + 
+		html += (`<li><a class="menu__link" href="#${section.attributes['id'].nodeValue}">` + 
 				 `${section.attributes['data-nav'].nodeValue}</a></li>`);
 	}
 
