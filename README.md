@@ -1,13 +1,17 @@
 # Landing Page Project
 
-## Table of Contents
+## Summary
 
-* [Instructions](#instructions)
+The project uses JavaScript to dynamically build navigation links based on the
+number of page sections present in the HTML.  It also highlights the 
+active section as the user scrolls through the page, and uses a smooth
+scroll when the user clicks a navigation link.
 
-## Instructions
+## Skills/knowledge
 
-The starter project has some HTML and CSS styling to display a static version of the Landing Page project. You'll need to convert this project from a static project to an interactive one. This will require modifying the HTML and CSS files, but primarily the JavaScript file.
+* DOM manipulation
+* HTMLCollection
+* NodeList
+* Event listeners
 
-To get started, open `js/app.js` and start building out the app's functionality
 
-For specific, detailed instructions, look at the project instructions in the Udacity Classroom.

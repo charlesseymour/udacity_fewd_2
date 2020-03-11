@@ -1,43 +1,8 @@
-/**
- * 
- * Manipulating the DOM exercise.
- * Exercise programmatically builds navigation,
- * scrolls to anchors from navigation,
- * and highlights section in viewport upon scrolling.
- * 
- * Dependencies: None
- * 
- * JS Version: ES2015/ES6
- * 
- * JS Standard: ESlint
- * 
-*/
-
-/**
- * Define Global Variables
- * 
-*/
-
-
-/**
- * End Global Variables
- * Start Helper Functions
- * 
-*/
-
-
-
-/**
- * End Helper Functions
- * Begin Main Functions
- * 
-*/
-
 document.addEventListener('DOMContentLoaded', function () {
     
-	// build the nav:
+	// 1. Build the nav:
 	
-	// start html
+	// Start html
 	let html = "";
 
 	// Collect all sections
@@ -53,7 +18,7 @@ document.addEventListener('DOMContentLoaded', function () {
 	const nav_list = document.getElementById("navbar__list");
 	nav_list.innerHTML = html;
 	
-	// Add class 'active' to section when near top of viewport:
+	// 2. Add class 'active' to section when near top of viewport:
 
 	// Get current active section
 	let active_section = document.getElementsByClassName("your-active-class")[0];
@@ -83,7 +48,7 @@ document.addEventListener('DOMContentLoaded', function () {
 	}, false);
 
 
-	// Scroll to anchor ID using scrollTO event
+	// 3. Scroll to anchor ID using scrollTO event
 	// Based on https://stackoverflow.com/questions/7717527/smooth-scrolling-when-clicking-an-anchor-link
 	document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 		anchor.addEventListener('click', function (e) {
@@ -93,17 +58,4 @@ document.addEventListener('DOMContentLoaded', function () {
 			});
 		});
 	});
-
-/**
- * End Main Functions
- * Begin Events
- * 
-*/
-
-// Build menu 
-
-// Scroll to section on link click
-
-// Set sections as active
-
 });
