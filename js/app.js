@@ -10,7 +10,8 @@ document.addEventListener('DOMContentLoaded', function () {
 
 	// Loop through and build the html based on data-nav values
 	for (const section of sections) {
-		html += (`<li><a class="menu__link" href="#${section.attributes['id'].nodeValue}">` + 
+		html += (`<li${section.attributes['id'].value == "section1" ? " class=your-active-link" : ""}>` +
+				 `<a class="menu__link" href="#${section.attributes['id'].nodeValue}">` + 
 				 `${section.attributes['data-nav'].nodeValue}</a></li>`);
 	}
 
@@ -22,6 +23,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
 	// Get current active section
 	let active_section = document.getElementsByClassName("your-active-class")[0];
+	let active_link = document.getElementsByClassName("your-active-link")[0];
 
 	// On scroll event, check if current active section is visible in the viewport
 	// Based on https://gomakethings.com/how-to-test-if-an-element-is-in-the-viewport-with-vanilla-javascript/
@@ -33,10 +35,13 @@ document.addEventListener('DOMContentLoaded', function () {
 		// If bottom of section is above the viewport, make next section active
 		let section_bottom_y = active_section_position.y + active_section_position.height;
 		
-		if (section_bottom_y < 0) {
+		if (section_bottom_y < 5) {
 			active_section.nextElementSibling.classList.add("your-active-class");
 			active_section.classList.remove("your-active-class");
 			active_section = document.getElementsByClassName("your-active-class")[0];
+			active_link.nextElementSibling.classList.add("your-active-link");
+			active_link.classList.remove("your-active-link");
+			active_link = document.getElementsByClassName("your-active-link")[0];
 		}
 		
 		// If top of section is below the viewport, make previous section active
@@ -44,6 +49,9 @@ document.addEventListener('DOMContentLoaded', function () {
 			active_section.previousElementSibling.classList.add("your-active-class");
 			active_section.classList.remove("your-active-class");
 			active_section = document.getElementsByClassName("your-active-class")[0];
+			active_link.previousElementSibling.classList.add("your-active-link");
+			active_link.classList.remove("your-active-link");
+			active_link = document.getElementsByClassName("your-active-link")[0];
 		}
 	}, false);
 
